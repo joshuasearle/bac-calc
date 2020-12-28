@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 
 type gender = 'male' | 'female' | 'other';
+interface time {
+  hours: number;
+  minutes: number;
+}
 
 const App: React.FC = () => {
   const [standardCount, setStandardsCount] = useState(0);
   const [gender, setGender] = useState<gender>('male');
+  const [drinkingStartTime, setDrinkingStartTime] = useState<time>({
+    hours: 18,
+    minutes: 0,
+  });
 
   const standardCountChangeHandler = (e: any) => {
     // Convert to number
@@ -19,6 +27,22 @@ const App: React.FC = () => {
   const genderChangeHandler = (e: any) => {
     const gender: gender = e.target.value;
     setGender(gender);
+  };
+
+  const drinkingStartChangeHandler = (e: any) => {
+    const value = e.target.value;
+    const [hoursString, minsString] = value.split(':');
+    setDrinkingStartTime({ hours: +hoursString, minutes: +minsString });
+  };
+
+  const timeObjToString = ({ hours, minutes }: time): string => {
+    const hoursString = String(hours);
+    const minutesString = String(minutes);
+    const doubleHoursString =
+      hoursString.length === 2 ? hoursString : '0' + hoursString;
+    const doubleMinutesString =
+      minutesString.length === 2 ? minutesString : '0' + minutesString;
+    return doubleHoursString + ':' + doubleMinutesString;
   };
 
   return (
@@ -56,7 +80,11 @@ const App: React.FC = () => {
         ></input>
 
         <label>What time did you start drinking</label>
-        <input type='time'></input>
+        <input
+          type='time'
+          onChange={drinkingStartChangeHandler}
+          value={timeObjToString(drinkingStartTime)}
+        ></input>
       </div>
     </>
   );
