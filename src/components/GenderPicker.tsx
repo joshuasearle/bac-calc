@@ -25,10 +25,10 @@ const GenderPicker: React.FC<GenderPickerProps> = ({
     />
   ));
   return (
-    <>
+    <div>
       <label>What is your gender</label>
       <div onChange={genderChangeHandler}>{genderRadios}</div>
-    </>
+    </div>
   );
 };
 
