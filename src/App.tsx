@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
-type gender = 'male' | 'female' | 'other';
-interface time {
-  hours: number;
-  minutes: number;
-}
+import GenderPicker from './components/GenderPicker';
+
+import { time, gender } from './types';
 
 const App: React.FC = () => {
   const [standardCount, setStandardsCount] = useState(0);
@@ -45,45 +43,18 @@ const App: React.FC = () => {
     return doubleHoursString + ':' + doubleMinutesString;
   };
 
+  const sumbitOnClickHandler = (e: any) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <h1>BAC Calculator</h1>
+      <GenderPicker
+        currentGender={gender}
+        genderChangeHandler={genderChangeHandler}
+      />
       <div>
-        <label>What is your gender</label>
-        <div onChange={genderChangeHandler}>
-          <div>
-            <input
-              checked={gender === 'male'}
-              defaultChecked
-              type='radio'
-              id='male'
-              name='gender'
-              value='male'
-            />
-            <label htmlFor='male'>Male</label>
-          </div>
-          <div>
-            <input
-              checked={gender === 'female'}
-              type='radio'
-              id='female'
-              name='gender'
-              value='female'
-            />
-            <label htmlFor='female'>Female</label>
-          </div>
-          <div>
-            <input
-              checked={gender === 'other'}
-              type='radio'
-              id='other'
-              name='gender'
-              value='other'
-            />
-            <label htmlFor='other'>Other</label>
-          </div>
-        </div>
-
         <label>How many drinks have you had</label>
         <input
           type='number'
@@ -98,6 +69,8 @@ const App: React.FC = () => {
           onChange={drinkingStartChangeHandler}
           value={timeObjToString(drinkingStartTime)}
         ></input>
+
+        <button onClick={sumbitOnClickHandler}>Submit</button>
       </div>
     </>
   );
