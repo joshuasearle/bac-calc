@@ -47,13 +47,16 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <label>How many drinks have you consumed</label>
+        <label>How many drinks have you had</label>
         <input
           type='number'
           // Display zero as empty string
           value={standardCount === 0 ? '' : standardCount}
           onChange={standardCountChangeHandler}
         ></input>
+
+        <label>What time did you start drinking</label>
+        <input type='time'></input>
       </div>
     </>
   );
