@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import GenderPicker from './components/GenderPicker';
-import DrinksPicker from './components/DrinksPicker';
 import StartTimePicker from './components/StartTimePicker';
+import NumberPicker from './components/NumberPicker';
 
 import { time, gender } from './types';
 
@@ -15,15 +15,19 @@ const App: React.FC = () => {
     hours: 18,
     minutes: 0,
   });
+  const [standardDrink, setStandardDrink] = useState(10);
+  const [weight, setWeight] = useState(80);
 
-  const drinksCountChangeHandler = (e: any) => {
-    // Convert to number
-    const value = +e.target.value;
-    // If not a number, return
-    if (isNaN(value)) return setDrinksCount(0);
-    // If less than zero, return
-    if (value < 0) return setDrinksCount(0);
-    setDrinksCount(value);
+  const numberChangeHandler = (setter: any) => {
+    return (e: any) => {
+      // Convert to number
+      const value = +e.target.value;
+      // If not a number, return
+      if (isNaN(value)) return setter(0);
+      // If less than zero, return
+      if (value < 0) return setter(0);
+      setter(value);
+    };
   };
 
   const genderChangeHandler = (e: any) => {
@@ -39,24 +43,58 @@ const App: React.FC = () => {
 
   const sumbitOnClickHandler = (e: any) => {
     e.preventDefault();
-    console.log();
+    console.log('gender', gender);
+    console.log('standard drink', standardDrink);
+    console.log('drink count', drinksCount);
+    console.log('weight', weight);
+    console.log('start time', startTime);
   };
+
+  const genderPicker = (
+    <GenderPicker
+      currentGender={gender}
+      genderChangeHandler={genderChangeHandler}
+    />
+  );
+
+  const standardPicker = (
+    <NumberPicker
+      value={standardDrink}
+      changeHandler={numberChangeHandler(setStandardDrink)}
+      label={'What is a standard drink in your country (grams)'}
+    />
+  );
+  const drinkPicker = (
+    <NumberPicker
+      value={drinksCount}
+      changeHandler={numberChangeHandler(setDrinksCount)}
+      label={'How many standard drinks have will you have'}
+    />
+  );
+
+  const weightPicker = (
+    <NumberPicker
+      value={weight}
+      changeHandler={numberChangeHandler(setWeight)}
+      label={'How much do you weigh (kilograms)'}
+    />
+  );
+
+  const startTimePicker = (
+    <StartTimePicker
+      startTime={startTime}
+      startTimeChangeHandler={startTimeChangeHandler}
+    />
+  );
 
   return (
     <>
       <h1>{title}</h1>
-      <GenderPicker
-        currentGender={gender}
-        genderChangeHandler={genderChangeHandler}
-      />
-      <DrinksPicker
-        drinksCount={drinksCount}
-        drinksCountChangeHandler={drinksCountChangeHandler}
-      />
-      <StartTimePicker
-        startTime={startTime}
-        startTimeChangeHandler={startTimeChangeHandler}
-      />
+      {genderPicker}
+      {standardPicker}
+      {drinkPicker}
+      {weightPicker}
+      {startTimePicker}
       <div>
         <button onClick={sumbitOnClickHandler}>Submit</button>
       </div>
