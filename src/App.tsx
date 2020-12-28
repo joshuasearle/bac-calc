@@ -53,6 +53,7 @@ const App: React.FC = () => {
         <div onChange={genderChangeHandler}>
           <div>
             <input
+              checked={gender === 'male'}
               defaultChecked
               type='radio'
               id='male'
@@ -62,11 +63,23 @@ const App: React.FC = () => {
             <label htmlFor='male'>Male</label>
           </div>
           <div>
-            <input type='radio' id='female' name='gender' value='female' />
+            <input
+              checked={gender === 'female'}
+              type='radio'
+              id='female'
+              name='gender'
+              value='female'
+            />
             <label htmlFor='female'>Female</label>
           </div>
           <div>
-            <input type='radio' id='other' name='gender' value='other' />
+            <input
+              checked={gender === 'other'}
+              type='radio'
+              id='other'
+              name='gender'
+              value='other'
+            />
             <label htmlFor='other'>Other</label>
           </div>
         </div>
