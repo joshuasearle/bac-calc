@@ -5,6 +5,7 @@ import StartTimePicker from './components/StartTimePicker';
 import NumberPicker from './components/NumberPicker';
 
 import { time, gender } from './types';
+import { widmark } from './util';
 
 const App: React.FC = () => {
   const title: string = 'BAC Calculator';
@@ -43,11 +44,7 @@ const App: React.FC = () => {
 
   const sumbitOnClickHandler = (e: any) => {
     e.preventDefault();
-    console.log('gender', gender);
-    console.log('standard drink', standardDrink);
-    console.log('drink count', drinksCount);
-    console.log('weight', weight);
-    console.log('start time', startTime);
+    console.log(widmark(drinksCount, standardDrink, weight, gender, 2));
   };
 
   const genderPicker = (
