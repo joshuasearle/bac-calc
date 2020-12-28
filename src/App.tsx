@@ -87,10 +87,20 @@ const App: React.FC = () => {
     />
   );
 
+  const helpLink = (
+    <a
+      href='https://en.wikipedia.org/wiki/Standard_drink#Definitions_in_various_countries'
+      target='_blank'
+    >
+      Don't know what a standard drink is in my country
+    </a>
+  );
+
   return (
     <>
       <h1>{title}</h1>
       {genderPicker}
+      {helpLink}
       {standardPicker}
       {drinkPicker}
       {weightPicker}
