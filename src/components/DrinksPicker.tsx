@@ -11,7 +11,7 @@ const DrinksPicker: React.FC<DrinksPickerProps> = ({
 }) => {
   return (
     <div>
-      <label>How many drinks have you had</label>
+      <label>How many standard drinks have will you have</label>
       <input
         type='number'
         // Display zero as empty string
