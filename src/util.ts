@@ -27,13 +27,13 @@ export const widmark = (
 ): number => {
   const waterToTotalWeightRatio =
     gender === 'male' ? 0.68 : gender === 'female' ? 0.55 : 0.615;
-
   const bodyWeightInGrams = bodyWeight * 1000;
   const waterBodyWeight = bodyWeightInGrams * waterToTotalWeightRatio;
 
   const alcoholInGrams = drinks * standardDrink;
 
   const alcoholUnitPerWaterWeightUnit = alcoholInGrams / waterBodyWeight;
+
   const densityOfBlood = 1.055;
   const bacBeforeMetabolisation =
     alcoholUnitPerWaterWeightUnit * densityOfBlood * 100;
