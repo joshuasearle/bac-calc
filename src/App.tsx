@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import GenderPicker from './components/GenderPicker';
 import DrinksPicker from './components/DrinksPicker';
+import StartTimePicker from './components/StartTimePicker';
 
 import { time, gender } from './types';
 
@@ -10,7 +11,7 @@ const App: React.FC = () => {
 
   const [drinksCount, setDrinksCount] = useState(0);
   const [gender, setGender] = useState<gender>('male');
-  const [drinkingStartTime, setDrinkingStartTime] = useState<time>({
+  const [startTime, setStartTime] = useState<time>({
     hours: 18,
     minutes: 0,
   });
@@ -30,24 +31,15 @@ const App: React.FC = () => {
     setGender(gender);
   };
 
-  const drinkingStartChangeHandler = (e: any) => {
+  const startTimeChangeHandler = (e: any) => {
     const value = e.target.value;
     const [hoursString, minsString] = value.split(':');
-    setDrinkingStartTime({ hours: +hoursString, minutes: +minsString });
-  };
-
-  const timeObjToString = ({ hours, minutes }: time): string => {
-    const hoursString = String(hours);
-    const minutesString = String(minutes);
-    const doubleHoursString =
-      hoursString.length === 2 ? hoursString : '0' + hoursString;
-    const doubleMinutesString =
-      minutesString.length === 2 ? minutesString : '0' + minutesString;
-    return doubleHoursString + ':' + doubleMinutesString;
+    setStartTime({ hours: +hoursString, minutes: +minsString });
   };
 
   const sumbitOnClickHandler = (e: any) => {
     e.preventDefault();
+    console.log();
   };
 
   return (
@@ -61,14 +53,11 @@ const App: React.FC = () => {
         drinksCount={drinksCount}
         drinksCountChangeHandler={drinksCountChangeHandler}
       />
+      <StartTimePicker
+        startTime={startTime}
+        startTimeChangeHandler={startTimeChangeHandler}
+      />
       <div>
-        <label>What time did you start drinking</label>
-        <input
-          type='time'
-          onChange={drinkingStartChangeHandler}
-          value={timeObjToString(drinkingStartTime)}
-        ></input>
-
         <button onClick={sumbitOnClickHandler}>Submit</button>
       </div>
     </>
