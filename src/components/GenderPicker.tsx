@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from '../css/classes';
 
 import { gender } from '../types';
 import { capitalise } from '../util';
@@ -25,8 +26,8 @@ const GenderPicker: React.FC<GenderPickerProps> = ({
     />
   ));
   return (
-    <div>
-      <label>What is your gender</label>
+    <div className={classes.input}>
+      <label className={classes.inputLabel}>What is your gender</label>
       <div onChange={genderChangeHandler}>{genderRadios}</div>
     </div>
   );

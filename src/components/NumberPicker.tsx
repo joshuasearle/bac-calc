@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from '../css/classes';
 
 interface NumberPickerProps {
   value: number;
@@ -12,8 +13,8 @@ const NumberPicker: React.FC<NumberPickerProps> = ({
   label,
 }) => {
   return (
-    <div>
-      <label>{label}</label>
+    <div className={classes.input}>
+      <label className={classes.inputLabel}>{label}</label>
       <input
         type='number'
         // Display zero as empty string

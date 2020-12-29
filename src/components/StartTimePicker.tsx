@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from '../css/classes';
 
 import { time } from '../types';
 import { timeObjToString } from '../util';
@@ -13,8 +14,10 @@ const StartTimePicker: React.FC<StartTimePickerProps> = ({
   startTimeChangeHandler,
 }) => {
   return (
-    <div>
-      <label>What time will you start drinking</label>
+    <div className={classes.input}>
+      <label className={classes.inputLabel}>
+        What time will you start drinking
+      </label>
       <input
         type='time'
         onChange={startTimeChangeHandler}

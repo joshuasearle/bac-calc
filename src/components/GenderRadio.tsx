@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from '../css/classes';
 
 import { gender } from '../types';
 
@@ -22,7 +23,9 @@ const GenderRadio: React.FC<GenderRadioProps> = ({
         name={gender}
         value={gender}
       />
-      <label htmlFor={gender}>{label}</label>
+      <label className={classes.radioLabel} htmlFor={gender}>
+        {label}
+      </label>
     </div>
   );
 };
