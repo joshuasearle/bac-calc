@@ -47,7 +47,10 @@ export const createBacData = (bacs: number[], startTime: time): bacData => {
   let currentTime = startTime;
   const bacData: bacData = [];
   for (let bac of bacs) {
-    bacData.push({ bac: bac, time: timeToString(currentTime) });
+    bacData.push({
+      bac: +Number(bac).toFixed(4),
+      time: timeToString(currentTime),
+    });
     currentTime = nextTime(currentTime);
   }
   return bacData;
