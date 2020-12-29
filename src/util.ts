@@ -61,7 +61,7 @@ export const nextTime = ({ hours, minutes }: time): time => {
 
 export const timeToString = ({ hours, minutes }: time): string => {
   const am = hours < 12 ? 'AM' : 'PM';
-  const hour = hours === 0 ? '12' : String(hours % 12);
+  const hour = hours === 0 || hours === 12 ? '12' : String(hours % 12);
   const minute = String(minutes).length === 2 ? String(minutes) : `0${minutes}`;
   return `${hour}:${minute}${am}`;
 };
