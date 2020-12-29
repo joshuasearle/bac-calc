@@ -10,6 +10,7 @@ html {
 }
 
 :root {
+  padding: 1em;
 }
 
 *,
@@ -20,6 +21,12 @@ html {
   margin: 0;
   vertical-align: baseline;
   font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  * {
+    font-size: 1rem;
+  }
 }
 
 .options {
@@ -50,7 +57,7 @@ html {
 }
 
 .chart {
-  width: 1000px;
-  max-width: 100%;
+  max-width: 1000px;
+  width: 100%;
   margin: auto;
 }
