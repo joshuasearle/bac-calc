@@ -7,3 +7,5 @@ See it [here](https://joshuasearle.github.io/bac-calc)
 - Webpack
 - TypeScript
 - Chartjs
+- HTML
+- CSS
