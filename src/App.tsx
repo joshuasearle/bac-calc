@@ -65,6 +65,9 @@ const App: React.FC = () => {
     labels: bacData ? bacData.map(({ bac, time }) => time) : null,
     datasets: [
       {
+        backgroundColor: '#000000',
+        borderColor: '#AAAAAA',
+        fill: false,
         data: bacData ? bacData.map(({ bac, time }) => bac) : null,
       },
     ],
@@ -117,15 +120,10 @@ const App: React.FC = () => {
   );
 
   const options = {
+    title: { display: true, text: 'BAC Over Time' },
     scales: {
-      xAxes: [
-        {
-          gridLines: {
-            display: false,
-          },
-        },
-      ],
-      yAxes: [{ gridLines: { display: false } }],
+      xAxes: [{ scaleLabel: { display: true, labelString: 'Time' } }],
+      yAxes: [{ scaleLabel: { display: true, labelString: 'BAC' } }],
       ticks: { beginAtZero: true },
     },
     legend: {
@@ -136,7 +134,7 @@ const App: React.FC = () => {
     },
   };
 
-  const lineChart = bacData ? <Line data={data} /> : null;
+  const lineChart = bacData ? <Line data={data} options={options} /> : null;
 
   return (
     <>
