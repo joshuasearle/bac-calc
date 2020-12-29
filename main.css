@@ -1,0 +1,65 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: auto !important;
+  padding-bottom: 300px !important;
+}
+
+:root {
+  padding: 1em;
+}
+
+*,
+*:before,
+*:after {
+  font-family: monospace;
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: baseline;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  * {
+    font-size: 1rem;
+  }
+}
+
+.options {
+  width: max-content;
+  margin: auto;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.input-label {
+  font-weight: 800;
+  display: block;
+}
+
+.input {
+  margin: 1em;
+}
+
+.radio-label {
+  margin: 0.5em;
+}
+
+.submit {
+  text-align: center;
+}
+
+.chart {
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  margin-top: 2em;
+}
+
