@@ -26,8 +26,8 @@ const GenderPicker: React.FC<GenderPickerProps> = ({
     />
   ));
   return (
-    <div className={classes.input}>
-      <label className={classes.inputLabel}>What is your gender</label>
+    <div className={'form-group'}>
+      <label>What is your gender</label>
       <div onChange={genderChangeHandler}>{genderRadios}</div>
     </div>
   );

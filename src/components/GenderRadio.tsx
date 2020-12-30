@@ -15,15 +15,16 @@ const GenderRadio: React.FC<GenderRadioProps> = ({
   label,
 }) => {
   return (
-    <div>
+    <div className={'form-check'}>
       <input
+        className={'form-check-input'}
         checked={currentGender === gender}
         type='radio'
         id={gender}
         name={gender}
         value={gender}
       />
-      <label className={classes.radioLabel} htmlFor={gender}>
+      <label className={'form-check-label'} htmlFor={gender}>
         {label}
       </label>
     </div>

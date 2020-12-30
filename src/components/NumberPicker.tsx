@@ -13,9 +13,10 @@ const NumberPicker: React.FC<NumberPickerProps> = ({
   label,
 }) => {
   return (
-    <div className={classes.input}>
-      <label className={classes.inputLabel}>{label}</label>
+    <div className={'form-group'}>
+      <label>{label}</label>
       <input
+        className={'form-control'}
         type='number'
         // Display zero as empty string
         value={value === 0 ? '' : value}

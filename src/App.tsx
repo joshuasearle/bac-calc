@@ -112,6 +112,7 @@ const App: React.FC = () => {
 
   const helpLink = (
     <a
+      className='form-text text-muted small text-center'
       href='https://en.wikipedia.org/wiki/Standard_drink#Definitions_in_various_countries'
       target='_blank'
     >
@@ -120,10 +121,14 @@ const App: React.FC = () => {
   );
 
   const options = {
-    title: { display: true, text: 'BAC Over Time' },
+    title: { display: true, text: 'BAC Over Time', fontSize: 19 },
     scales: {
-      xAxes: [{ scaleLabel: { display: true, labelString: 'Time' } }],
-      yAxes: [{ scaleLabel: { display: true, labelString: 'BAC' } }],
+      xAxes: [
+        { scaleLabel: { display: true, labelString: 'Time', fontSize: 19 } },
+      ],
+      yAxes: [
+        { scaleLabel: { display: true, labelString: 'BAC', fontSize: 19 } },
+      ],
       ticks: { beginAtZero: true },
     },
     legend: {
@@ -138,18 +143,18 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div className={classes.options}>
-        <h1 className={classes.title}>{title}</h1>
+      <h1 className={classes.title}>{title}</h1>
+      <form className={classes.options}>
         {genderPicker}
-        {helpLink}
+        {/* {helpLink} */}
         {standardPicker}
         {drinkPicker}
         {weightPicker}
         {startTimePicker}
-        <div className={classes.submit}>
-          <button onClick={sumbitOnClickHandler}>Submit</button>
-        </div>
-      </div>
+        <button className={'btn btn-primary'} onClick={sumbitOnClickHandler}>
+          Submit
+        </button>
+      </form>
 
       <div className={classes.chart}>{lineChart}</div>
     </>

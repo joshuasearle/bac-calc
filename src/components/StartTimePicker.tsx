@@ -14,11 +14,12 @@ const StartTimePicker: React.FC<StartTimePickerProps> = ({
   startTimeChangeHandler,
 }) => {
   return (
-    <div className={classes.input}>
+    <div className={'form-group'}>
       <label className={classes.inputLabel}>
         What time will you start drinking
       </label>
       <input
+        className={'form-control'}
         type='time'
         onChange={startTimeChangeHandler}
         value={timeObjToString(startTime)}
