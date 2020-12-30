@@ -1,9 +1,3 @@
-body,
-html {
-  padding: 0;
-  margin: 0;
-}
-
 html {
   height: auto !important;
   padding-bottom: 300px !important;
@@ -16,16 +10,19 @@ html {
 *,
 *:before,
 *:after {
-  font-family: monospace;
   box-sizing: border-box;
   margin: 0;
   vertical-align: baseline;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
   * {
-    font-size: 1rem;
+    font-size: 1.2rem;
+  }
+  input[type='checkbox'],
+  input[type='radio'] {
+    top: 5px;
   }
 }
 
@@ -35,24 +32,6 @@ html {
 }
 
 .title {
-  font-size: 2rem;
-  text-align: center;
-}
-
-.input-label {
-  font-weight: 800;
-  display: block;
-}
-
-.input {
-  margin: 1em;
-}
-
-.radio-label {
-  margin: 0.5em;
-}
-
-.submit {
   text-align: center;
 }
 
@@ -61,5 +40,9 @@ html {
   width: 100%;
   margin: auto;
   margin-top: 2em;
+}
+
+.small {
+  font-size: 0.9rem;
 }
 
