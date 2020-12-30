@@ -146,7 +146,7 @@ const App: React.FC = () => {
       <h1 className={classes.title}>{title}</h1>
       <form className={classes.options}>
         {genderPicker}
-        {/* {helpLink} */}
+        {helpLink}
         {standardPicker}
         {drinkPicker}
         {weightPicker}
